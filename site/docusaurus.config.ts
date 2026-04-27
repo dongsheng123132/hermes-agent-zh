@@ -64,9 +64,9 @@ const config: Config = {
           position: 'left',
           label: '教程',
         },
-        { to: '/00-preface/04-7day-plan', label: '7天速成', position: 'left' },
-        { to: '/05-cases/06-solo-entrepreneur', label: '⭐超级个体', position: 'left' },
-        { to: '/06-engineering/01-portable-packaging', label: '工程进阶', position: 'left' },
+        { to: '/preface/04-7day-plan', label: '7天速成', position: 'left' },
+        { to: '/cases/solo-entrepreneur', label: '⭐超级个体', position: 'left' },
+        { to: '/engineering/portable-packaging', label: '工程进阶', position: 'left' },
         {
           href: 'https://u-hermes.org',
           label: '🐎 U-Hermes 马盘',
@@ -85,19 +85,19 @@ const config: Config = {
         {
           title: '教程',
           items: [
-            { label: '前言', to: '/00-preface/01-who-is-this-for' },
-            { label: '入门', to: '/01-basics/02-3min-quickstart' },
-            { label: '安装', to: '/02-installation/01-linux-native' },
-            { label: '核心功能', to: '/03-core-features/01-skills-system' },
+            { label: '前言', to: '/preface/who-is-this-for' },
+            { label: '入门', to: '/basics/02-3min-quickstart' },
+            { label: '安装', to: '/installation/linux-native' },
+            { label: '核心功能', to: '/core-features/skills-system' },
           ],
         },
         {
           title: '案例',
           items: [
-            { label: '编程工作流', to: '/05-cases/01-coding-workflow' },
-            { label: '办公自动化', to: '/05-cases/02-office-automation' },
-            { label: '便携 USB', to: '/05-cases/05-portable-usb' },
-            { label: '⭐ 超级个体', to: '/05-cases/06-solo-entrepreneur' },
+            { label: '编程工作流', to: '/cases/coding-workflow' },
+            { label: '办公自动化', to: '/cases/office-automation' },
+            { label: '便携 USB', to: '/cases/portable-usb' },
+            { label: '⭐ 超级个体', to: '/cases/solo-entrepreneur' },
           ],
         },
         {
