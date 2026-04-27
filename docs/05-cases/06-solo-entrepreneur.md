@@ -321,4 +321,4 @@ crons:
 
 ---
 
-**[← 05-5 便携 USB](./05-portable-usb.md)** · **[06-engineering 工程进阶 →](../06-engineering/)**
+**[← 05-5 便携 USB](./05-portable-usb.md)** · **[06-engineering 工程进阶 →](/engineering/)**

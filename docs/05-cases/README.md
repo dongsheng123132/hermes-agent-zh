@@ -28,7 +28,7 @@
 → 04 → 03 → 02 顺序
 
 ### 我是开发者 / 想做产品
-→ 05 → [06-engineering](../06-engineering/)（即将发布）
+→ 05 → [06-engineering](/engineering/)（即将发布）
 
 ---
 

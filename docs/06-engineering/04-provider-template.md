@@ -364,4 +364,4 @@ async function loadTemplates() {
 
 ---
 
-**[← 06-3 Bundle Patches](./03-bundle-patches.md)** · **[完成 06 工程进阶 → 07 排错](../07-troubleshooting/)**
+**[← 06-3 Bundle Patches](./03-bundle-patches.md)** · **[完成 06 工程进阶 → 07 排错](/troubleshooting/)**

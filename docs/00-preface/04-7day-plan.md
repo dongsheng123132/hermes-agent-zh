@@ -245,13 +245,13 @@ crons:
 
 每一天结束都看一下今天的"验收"清单。如果没达成：
 
-1. **不要硬撑**：暂停一天找出根本原因（去 [07-troubleshooting](../07-troubleshooting/) 查）
+1. **不要硬撑**：暂停一天找出根本原因（去 [07-troubleshooting](/troubleshooting/) 查）
 2. **不要跳过**：Day 3 不通就别开始 Day 4，工具调用是后续基础
 3. **找帮助**：本仓库 [Issues](https://github.com/dongsheng123132/hermes-agent-zh/issues) 或邮件作者
 
 ---
 
-**完成 7 天后，你已经超过 95% 的 hermes 用户**。剩下的 5% 是产品 / 开发者级别，看 [06-engineering](../06-engineering/)。
+**完成 7 天后，你已经超过 95% 的 hermes 用户**。剩下的 5% 是产品 / 开发者级别，看 [06-engineering](/engineering/)。
 
 ---
 

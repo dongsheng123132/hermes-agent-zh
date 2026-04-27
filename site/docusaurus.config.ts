@@ -13,12 +13,14 @@ const config: Config = {
   projectName: 'hermes-agent-zh',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
   onBrokenAnchors: 'warn',
 
   // 用纯 markdown 解析，避免 MDX 把 {key} <Tag> 等当成 JSX
   markdown: {
     format: 'md',
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
 
   i18n: {

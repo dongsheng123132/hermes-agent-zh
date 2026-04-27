@@ -206,4 +206,4 @@ hermes chat --debug
 
 ---
 
-**完成 01-入门** → [02-installation/](../02-installation/) 选你的系统正式装
+**完成 01-入门** → [02-installation/](/installation/) 选你的系统正式装

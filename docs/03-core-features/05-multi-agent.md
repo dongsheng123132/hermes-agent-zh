@@ -344,4 +344,4 @@ hermes multi-agent visualize --workflow article-pipeline.yaml
 
 ---
 
-**[← 03-4 Cron](./04-cron-and-scheduling.md)** · **[完成 03 核心功能 → 04 Provider](../04-providers/)**
+**[← 03-4 Cron](./04-cron-and-scheduling.md)** · **[完成 03 核心功能 → 04 Provider](/providers/)**

@@ -66,7 +66,7 @@ DEEPSEEK_API_KEY=sk-xxx你的密钥xxx
 
 > 没 key？打开 [https://platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys) 注册即可（手机号验证，免费送几块钱额度，国内直连不用代理）。
 >
-> 想用其他 provider？看 [04-providers/](../04-providers/) 章节。
+> 想用其他 provider？看 [04-providers/](/providers/) 章节。
 
 保存（`Ctrl+O` → `Enter` → `Ctrl+X`）。
 

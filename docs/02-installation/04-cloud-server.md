@@ -245,4 +245,4 @@ docker run -d --name hermes \
 
 ---
 
-**完成 02-installation** → [03-core-features/](../03-core-features/) 进入核心功能学习
+**完成 02-installation** → [03-core-features/](/core-features/) 进入核心功能学习

@@ -92,7 +92,7 @@ hermes 内置 Cron 调度。你可以让它：
 
 - 第一次跑通：30 分钟（含装 Python venv + 配第一个 API Key）
 - 配出"自己的工作流"：3-5 天
-- 改源码 / 做产品：看你目标，但本教程的 [06-engineering/](../06-engineering/) 把作者踩过的坑都写了
+- 改源码 / 做产品：看你目标，但本教程的 [06-engineering/](/engineering/) 把作者踩过的坑都写了
 
 ---
 

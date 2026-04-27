@@ -23,7 +23,7 @@
 ### 路径 1：30 分钟尝鲜（小白）
 
 - [01-basics/02-3min-quickstart](../01-basics/02-3min-quickstart.md)（5 分钟）
-- 选你的系统装：[02-installation/](../02-installation/)（20 分钟）
+- 选你的系统装：[02-installation/](/installation/)（20 分钟）
 - 第一次对话：[01-basics/03-first-conversation](../01-basics/03-first-conversation.md)（5 分钟）
 
 跑通后：合上电脑，去做点别的；下次再来挑案例做。
@@ -31,14 +31,14 @@
 ### 路径 2：周末项目（程序员）
 
 周六上午：路径 1
-周六下午：[03-core-features/](../03-core-features/)（理解 Skills/Memory/Cron）
-周日：挑 [05-cases/](../05-cases/) 一个案例做出来
+周六下午：[03-core-features/](/core-features/)（理解 Skills/Memory/Cron）
+周日：挑 [05-cases/](/cases/) 一个案例做出来
 
 约 12-15 小时完整闭环。
 
 ### 路径 3：硬核研究（产品/创业者）
 
-按章节顺序通读 + 把 [06-engineering/](../06-engineering/) 的代码亲手敲一遍。约 30 小时。
+按章节顺序通读 + 把 [06-engineering/](/engineering/) 的代码亲手敲一遍。约 30 小时。
 
 ---
 
@@ -103,7 +103,7 @@ def my_skill(input: str) -> str:
 按这个顺序排查：
 
 1. **先看本章末尾的"常见问题"** —— 90% 的卡点已被列出
-2. **查 [07-troubleshooting/](../07-troubleshooting/)** —— 系统化排错决策树
+2. **查 [07-troubleshooting/](/troubleshooting/)** —— 系统化排错决策树
 3. **搜 [hermes-agent GitHub Issues](https://github.com/NousResearch/hermes-agent/issues)** —— 也许别人已经报过
 4. **Google 关键报错** —— 但请翻第二页才有英文社区的好答案
 5. **本仓库提 Issue** —— [hermes-agent-zh Issues](https://github.com/dongsheng123132/hermes-agent-zh/issues)
