@@ -6,8 +6,8 @@ const config: Config = {
   tagline: '让"马"替你 24 小时写代码 · 零基础玩转 hermes-agent',
   favicon: 'img/favicon.ico',
 
-  url: 'https://dongsheng123132.github.io',
-  baseUrl: '/hermes-agent-zh/',
+  url: 'https://dev.u-hermes.org',
+  baseUrl: '/',
 
   organizationName: 'dongsheng123132',
   projectName: 'hermes-agent-zh',
