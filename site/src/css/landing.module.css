@@ -1,1 +1,189 @@
-/* Reserved for future landing page styles */
+.hero {
+  background: linear-gradient(135deg, #2e8555 0%, #1a6b3a 100%);
+  color: #fff;
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+}
+
+.heroInner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 2.4rem;
+  margin: 0 0 0.8rem;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  opacity: 0.92;
+  margin: 0 0 1.8rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.btnPrimary,
+.btnSecondary {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btnPrimary {
+  background: #fff;
+  color: #2e8555;
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btnPrimary:hover,
+.btnSecondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  color: inherit;
+}
+
+.btnPrimary:hover {
+  color: #2e8555;
+}
+
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.section {
+  margin: 2.5rem 0;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  margin: 0 0 1.2rem;
+  border-left: 4px solid #2e8555;
+  padding-left: 0.7rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.routesTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.routesTable th,
+.routesTable td {
+  padding: 0.8rem 0.7rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  text-align: left;
+  vertical-align: top;
+}
+
+.routesTable th {
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+}
+
+.routesTable tr:hover td {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.emoji {
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0.6rem 1.5rem;
+}
+
+.featureList li {
+  padding: 0.4rem 0;
+  line-height: 1.5;
+}
+
+.chapterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.chapterCard {
+  display: block;
+  padding: 1.2rem 1.1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.chapterCard:hover {
+  transform: translateY(-2px);
+  border-color: #2e8555;
+  box-shadow: 0 6px 18px rgba(46, 133, 85, 0.12);
+}
+
+.chapterCard h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  color: #2e8555;
+}
+
+.chapterCard p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.callout {
+  margin: 3rem 0 1rem;
+  padding: 1.6rem 1.4rem;
+  background: var(--ifm-color-emphasis-100);
+  border-left: 4px solid #2e8555;
+  border-radius: 4px;
+}
+
+.callout h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.3rem;
+}
+
+.callout p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  .section h2 {
+    font-size: 1.35rem;
+  }
+}
