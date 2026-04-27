@@ -16,6 +16,11 @@ const config: Config = {
   onBrokenMarkdownLinks: 'warn',
   onBrokenAnchors: 'warn',
 
+  // 用纯 markdown 解析，避免 MDX 把 {key} <Tag> 等当成 JSX
+  markdown: {
+    format: 'md',
+  },
+
   i18n: {
     defaultLocale: 'zh-CN',
     locales: ['zh-CN'],
