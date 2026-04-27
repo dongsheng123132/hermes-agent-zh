@@ -27,4 +27,18 @@ paths = [
   '''CONTRIBUTING\.md''',
   '''\.gitleaks\.toml''',
   '''\.github/workflows/.*''',
+  '''\.github/PULL_REQUEST_TEMPLATE\.md''',
+  '''scripts/verify-and-push\.sh''',
+  '''CHANGELOG\.md''',
+]
+# 教学示例里的占位 / 演示密码（HTTP Basic Auth 教学等）
+regexes = [
+  '''youruser:yourpass''',
+  '''sk-xxx你的key''',
+  '''sk-粘贴你的key''',
+  '''ghp_xxx''',
+  '''xoxb-xxx''',
+  '''DEEPSEEK_API_KEY=sk-xxx''',
+  '''ANTHROPIC_API_KEY=sk-ant-xxx''',
+  '''OPENAI_API_KEY=sk-xxx''',
 ]
