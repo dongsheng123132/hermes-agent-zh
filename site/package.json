@@ -31,6 +31,10 @@
     "production": [">0.5%", "not dead", "not op_mini all"],
     "development": ["last 3 chrome version", "last 3 firefox version", "last 5 safari version"]
   },
+  "overrides": {
+    "webpack": "5.105.0",
+    "webpackbar": "^7.0.0"
+  },
   "engines": {
     "node": ">=18.0"
   }
