@@ -316,7 +316,7 @@ echo [3/3] 启动 hermes...
 
 完整可跑的脚本（**已脱敏 / 不含商业版激活逻辑**）见：
 
-- 本仓库 [examples/scripts/build-portable.sh](../../examples/scripts/) （v1.5 发布）
+- 本仓库 [examples/scripts/build-portable.sh](https://github.com/dongsheng123132/hermes-agent-zh/tree/main/examples/scripts/) （v1.5 发布）
 - 作者商业产品 [U-Hermes Linux 开源版](https://github.com/dongsheng123132/u-hermes)（Linux 部分完全开源，Windows 闭源）
 
 ---

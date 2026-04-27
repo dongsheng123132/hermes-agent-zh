@@ -19,7 +19,7 @@
 
 ## 一键脚本
 
-我把整套流程写成了 [`setup-hermes.sh`](../../examples/scripts/setup-hermes.sh)，**复制粘贴跑**：
+我把整套流程写成了 [`setup-hermes.sh`](https://github.com/dongsheng123132/hermes-agent-zh/blob/main/examples/scripts/setup-hermes.sh)，**复制粘贴跑**：
 
 ```bash
 # 下载到本地

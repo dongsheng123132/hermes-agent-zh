@@ -72,7 +72,7 @@ mkfs.ext4 -L casper-rw /media/USB-VENTOY/persistence.dat
 
 ### 4. 拷 hermes setup 脚本
 
-把 [`examples/scripts/setup-hermes.sh`](../../examples/scripts/setup-hermes.sh) 和 `start-hermes.sh` 拷到 U 盘 `/U-Hermes/` 目录下。
+把 [`examples/scripts/setup-hermes.sh`](https://github.com/dongsheng123132/hermes-agent-zh/blob/main/examples/scripts/setup-hermes.sh) 和 `start-hermes.sh` 拷到 U 盘 `/U-Hermes/` 目录下。
 
 ```bash
 mkdir -p /media/USB-VENTOY/U-Hermes

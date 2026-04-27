@@ -17,7 +17,7 @@ NO_PROXY=127.0.0.1,localhost,::1
 no_proxy=127.0.0.1,localhost,::1
 ```
 
-完整版：[`examples/configs/hermes.env.example`](../../examples/configs/hermes.env.example)
+完整版：[`examples/configs/hermes.env.example`](https://github.com/dongsheng123132/hermes-agent-zh/blob/main/examples/configs/hermes.env.example)
 
 ---
 
@@ -58,7 +58,7 @@ web_ui:
   port: 8648
 ```
 
-完整版：[`examples/configs/hermes.config.yaml.example`](../../examples/configs/hermes.config.yaml.example)
+完整版：[`examples/configs/hermes.config.yaml.example`](https://github.com/dongsheng123132/hermes-agent-zh/blob/main/examples/configs/hermes.config.yaml.example)
 
 ---
 

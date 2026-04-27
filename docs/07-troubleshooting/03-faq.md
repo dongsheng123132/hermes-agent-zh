@@ -223,7 +223,7 @@ config.yaml 里没定义这个 provider。或 typo 了。
 - Skill 接口
 - MCP 协议版本
 
-如果某章和你用的版本不一致，看 [CHANGELOG](../../CHANGELOG.md) 的版本对应表。
+如果某章和你用的版本不一致，看仓库的 CHANGELOG.md 版本对应表（[GitHub](https://github.com/dongsheng123132/hermes-agent-zh/blob/main/CHANGELOG.md)）。
 
 ---
 
@@ -235,4 +235,4 @@ config.yaml 里没定义这个 provider。或 typo 了。
 
 ---
 
-**返回**：[排错目录](./) · [主页](../../README.md)
+**返回**：[排错目录](./) · [主页](/)

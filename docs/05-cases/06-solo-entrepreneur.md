@@ -121,7 +121,7 @@ script: |
   python3 ~/.u-hermes/scripts/wechat_api.py "$1"
 ```
 
-详细代码示例（不含 secret）见 [examples/skills/](../../examples/skills/)。
+详细代码示例（不含 secret）见 [examples/skills/](https://github.com/dongsheng123132/hermes-agent-zh/tree/main/examples/skills/)。
 
 ### 实际数据（社区成员 @hahaha 反馈）
 
@@ -305,7 +305,7 @@ crons:
 
 ### 配套模板下载
 
-完整可跑的 cron 配置 + Skills 见 [examples/workflows/solo-entrepreneur/](../../examples/workflows/) （v1.5 发布）。
+完整可跑的 cron 配置 + Skills 见 [examples/workflows/solo-entrepreneur/](https://github.com/dongsheng123132/hermes-agent-zh/tree/main/examples/workflows/) （v1.5 发布）。
 
 ### 加入 GitHub Discussions
 

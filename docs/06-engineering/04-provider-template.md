@@ -359,7 +359,7 @@ async function loadTemplates() {
 
 完整的 16 个 Provider 模板（不含商业版独占 Provider）见：
 
-- 本仓库 [examples/configs/provider-templates.json](../../examples/configs/) （v1.5 发布）
+- 本仓库 [examples/configs/provider-templates.json](https://github.com/dongsheng123132/hermes-agent-zh/tree/main/examples/configs/) （v1.5 发布）
 - 开源参考 [u-hermes/website/](https://github.com/dongsheng123132/u-hermes)（U-Hermes 公开仓库的 Provider 列表）
 
 ---
