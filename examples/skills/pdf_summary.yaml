@@ -1,0 +1,65 @@
+# PDF Summary Skill —— PDF 文档结构化摘要
+# License: MIT
+#
+# 用法：
+#   > 总结 ~/Downloads/2026-AI-trends.pdf 的关键内容
+
+name: pdf_summary
+description: |
+  对 PDF 文档生成结构化摘要：核心论点 / 关键数据 / 可执行行动项。
+  当用户说"总结 XX.pdf"、"读这份 PDF"、"提炼这个文档" 时使用。
+
+parameters:
+  - name: pdf_path
+    type: string
+    required: true
+    description: "PDF 文件的本地路径"
+  - name: max_length
+    type: integer
+    default: 800
+    description: "摘要长度（字数）上限"
+
+script: |
+  #!/usr/bin/env python3
+  import sys, json, subprocess
+  from pathlib import Path
+
+  args = json.loads(sys.stdin.read())
+  pdf_path = Path(args['pdf_path']).expanduser()
+  max_length = args.get('max_length', 800)
+
+  if not pdf_path.exists():
+      print(json.dumps({"error": f"file not found: {pdf_path}"}))
+      sys.exit(1)
+
+  # 1. PDF → 纯文本（用 pdftotext，需要 poppler-utils）
+  try:
+      result = subprocess.run(
+          ['pdftotext', str(pdf_path), '-'],
+          capture_output=True, text=True, timeout=60,
+      )
+      text = result.stdout
+  except FileNotFoundError:
+      # 退路：用 PyPDF2
+      try:
+          from PyPDF2 import PdfReader
+          reader = PdfReader(str(pdf_path))
+          text = '\n'.join(page.extract_text() for page in reader.pages)
+      except ImportError:
+          print(json.dumps({"error": "Need pdftotext or PyPDF2. Install: apt install poppler-utils 或 pip install PyPDF2"}))
+          sys.exit(1)
+
+  # 2. 截断到合理长度（hermes 的 LLM 还会再处理）
+  if len(text) > 50000:
+      text = text[:50000] + "\n[... 内容截断 ...]"
+
+  print(json.dumps({
+    "status": "ok",
+    "pdf": str(pdf_path),
+    "page_count": len(text.split('\f')),    # 用换页符估页数
+    "char_count": len(text),
+    "max_summary_length": max_length,
+    "text": text,
+  }, ensure_ascii=False))
+
+  # hermes 的 LLM 收到这个 JSON 后会基于 text 字段生成结构化摘要

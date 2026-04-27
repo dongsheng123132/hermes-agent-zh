@@ -1,0 +1,45 @@
+# hermes-agent · config.yaml 示例（hermes 启动时自动读取 ~/.u-hermes/data/config.yaml）
+#
+# 这个文件比 .env 表达力更强：可以同时配多个 provider、为不同 agent 分配不同模型。
+# .env 里的 API_KEY 会被这里的 providers 自动引用。
+
+providers:
+  deepseek:
+    type: openai_compatible
+    base_url: https://api.deepseek.com/v1
+    api_key: ${DEEPSEEK_API_KEY}
+    models:
+      - deepseek-chat
+      - deepseek-reasoner
+
+  alibaba:
+    type: openai_compatible
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    api_key: ${DASHSCOPE_API_KEY}
+    models:
+      - qwen-plus
+      - qwen-turbo
+      - qwen-max
+
+  ollama:
+    type: openai_compatible
+    base_url: http://127.0.0.1:11434/v1
+    api_key: ollama
+    models:
+      - qwen2.5:7b
+      - deepseek-r1:7b
+
+# 默认会话使用的 provider/model
+defaults:
+  provider: deepseek
+  model: deepseek-chat
+
+# 网关
+gateway:
+  host: 127.0.0.1
+  port: 8642
+
+# Web UI
+web_ui:
+  host: 127.0.0.1
+  port: 8648

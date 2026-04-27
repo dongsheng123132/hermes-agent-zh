@@ -1,0 +1,64 @@
+# 工作流：周末知识库自动整理
+# License: MIT
+
+crons:
+  - name: "weekly-knowledge-base"
+    schedule: "0 17 * * 0"
+    description: "每周日下午 5 点整理 ~/notes/"
+    timezone: "Asia/Shanghai"
+
+    prompt: |
+      ## 扫描
+
+      1. shell: 列出 ~/notes/ 本周新增 / 修改的 .md 文件：
+         find ~/notes/ -name "*.md" -newermt "7 days ago" -type f
+
+      ## 处理每个文件
+
+      2. 对每个文件：
+         - file_read: 读内容
+         - 抽取：标题、首段、关键点（用 LLM 处理）
+         - 生成 3-5 个标签（中文）
+         - 评估"重要度"（1-5 分，基于：是否含决策、是否含可执行行动、是否新知识）
+
+      ## 更新索引
+
+      3. file_write 更新 ~/notes/INDEX.md：
+         结构：
+
+         # 笔记索引
+
+         > 最后更新：YYYY-MM-DD
+
+         ## 本周高分（≥ 4 分）
+
+         - [文件名](./路径) - 标签 - 一句话摘要
+
+         ## 按主题分组
+
+         ### 技术
+         - ...
+
+         ### 产品
+         - ...
+
+         ### 阅读
+         - ...
+
+      ## 同步到 Notion（可选）
+
+      4. 如果配了 notion MCP server：
+         - 重要度 ≥ 4 的笔记同步到 Notion 数据库
+         - 给每个 Notion page 添加标签 + 摘要
+
+      ## 通知
+
+      5. lark_send：
+         "📚 本周笔记整理完成
+          - 共 X 篇新增/修改
+          - Y 篇高分笔记
+          - 已同步 Z 篇到 Notion
+          INDEX 已更新：~/notes/INDEX.md"
+
+    timeout: 600
+```

@@ -1,0 +1,46 @@
+# 工作流：早间简报
+# License: MIT
+#
+# 部署：复制本文件相关内容到 ~/.u-hermes/data/crons.yaml
+#
+# 效果：每个工作日早 8:30，hermes 自动整理：
+#   1. 今日新闻 3 条
+#   2. 你今天的会议
+#   3. 你的 GitHub 待审 PR
+#   4. 推送到飞书"个人助理"群
+
+crons:
+  - name: "morning-briefing"
+    schedule: "30 8 * * 1-5"
+    description: "工作日早间简报"
+    timezone: "Asia/Shanghai"
+
+    provider: deepseek
+    model: deepseek-chat
+
+    prompt: |
+      早安。请整理今天的简报，结构如下：
+
+      ## 📰 今日 AI 行业新闻（3 条）
+      用 web_search 找过去 12 小时关键词 "AI Agent" / "AI 编程" 的中英文报道。
+      每条用 2 句话总结：[标题]：[核心信息]
+
+      ## 📅 今天的会议
+      读 ~/.u-hermes/data/calendar/today.ics（如果有）
+      或查 Google Calendar（如果配了 google_calendar Skill）
+      列出今天所有会议：时间、主题、参会人
+
+      ## 🐛 我的 GitHub 待办
+      用 github_search Skill 查：
+      - is:open mentions:@me 我被 mention 的 Issue/PR
+      - is:open author:@me my-team 我提的 PR
+
+      ## ✨ 今日重点
+      基于以上，提 1-2 条今天最该优先做的事
+
+      ## 推送
+      用 lark_send Skill 发到 chat_id=oc_xxx_personal_assistant
+      （把上面所有内容用换行拼成一条消息）
+
+    timeout: 300
+    max_retries: 2

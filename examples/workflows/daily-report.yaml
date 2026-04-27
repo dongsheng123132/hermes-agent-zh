@@ -1,0 +1,53 @@
+# 工作流：每日工作日报自动生成
+# License: MIT
+
+crons:
+  - name: "daily-work-report"
+    schedule: "0 18 * * 1-5"
+    description: "工作日下午 6 点生成日报"
+    timezone: "Asia/Shanghai"
+
+    prompt: |
+      整理今天我做的事，输出结构化日报。
+
+      ## 收集数据
+
+      1. shell: 跑这条命令拿今天的 git 提交：
+         `for d in ~/projects/*/; do
+            (cd "$d" && git log --since="今天 00:00" --pretty=format:"[$(basename $d)] %s" 2>/dev/null);
+          done`
+
+      2. shell: 列今天动过的代码文件：
+         `find ~/projects -type f \( -name "*.ts" -o -name "*.py" -o -name "*.go" \) -newermt "$(date +%Y-%m-%d)" 2>/dev/null | head -30`
+
+      3. file_read: 如果存在 ~/notes/$(date +%Y-%m-%d).md，读今日笔记
+
+      4. memory_search: 找今天保存到 Memory 的关键决策
+
+      ## 生成日报
+
+      用以下结构（Markdown，正式语气）：
+
+      ## 今日完成
+      - [按项目分类，最重要的放最前]
+
+      ## 进行中
+      - [未完成的，标注预计完成时间]
+
+      ## 明日计划
+      - [基于今天进展推断]
+
+      ## 风险 / 阻塞
+      - [如果有的话]
+
+      ## 学习 / 想法
+      - [今日值得记录的洞察]
+
+      ## 写入
+
+      file_write 到 ~/Desktop/daily-$(date +%Y-%m-%d).md
+
+      然后用 system_clipboard Skill 复制到剪贴板（方便你一键贴到公司日报系统）
+
+      最后用 lark_send 发个"日报已生成"提醒到我个人群
+```

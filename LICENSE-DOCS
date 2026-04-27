@@ -1,0 +1,93 @@
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+Public License (CC BY-NC-ND 4.0)
+
+Copyright (c) 2026 He Fangsheng (何方升)
+
+================================================================================
+SCOPE OF THIS LICENSE
+================================================================================
+
+This Creative Commons license (CC BY-NC-ND 4.0) applies ONLY to:
+
+  - Prose, narrative text, explanations, tutorials, and chapter content
+    in the docs/ directory (the Markdown text outside of code blocks)
+  - Images, diagrams, screenshots in the assets/ directory
+  - The README.md prose (excluding code blocks)
+
+This license does NOT apply to:
+
+  - Source code, configuration files, scripts, or code snippets inside
+    code blocks — those are licensed under MIT (see LICENSE-CODE)
+  - Trademarks "U-Hermes", "马盘", and project logos — those are reserved
+    (see BRAND.md)
+
+================================================================================
+LICENSE TERMS (SUMMARY)
+================================================================================
+
+You are free to:
+
+  • Share — copy and redistribute the documentation in any medium or format
+
+Under the following terms:
+
+  • Attribution — You must give appropriate credit to "He Fangsheng /
+    hermes-agent-zh", provide a link to the license, and indicate if changes
+    were made. You may do so in any reasonable manner, but not in any way
+    that suggests the licensor endorses you or your use.
+
+  • NonCommercial — You may NOT use the documentation for commercial
+    purposes. This includes (but is not limited to):
+      - Selling printed copies (books, magazines, brochures)
+      - Including in paid courses, paid training programs, or paid bootcamps
+      - Bundling with paid products as a value-add
+      - Placing in publications that derive revenue from the content
+
+  • NoDerivatives — If you remix, transform, or build upon the
+    documentation, you may NOT distribute the modified material. You may
+    quote and reference the documentation freely, but may not redistribute
+    altered versions.
+
+  • No additional restrictions — You may not apply legal terms or
+    technological measures that legally restrict others from doing anything
+    the license permits.
+
+================================================================================
+WHAT THIS MEANS IN PRACTICE
+================================================================================
+
+ALLOWED (no permission needed):
+  ✓ Reading the documentation for free
+  ✓ Sharing the GitHub link with others
+  ✓ Quoting short passages in your own articles (with attribution)
+  ✓ Translating short excerpts for personal study
+  ✓ Using the documentation as reference material in non-commercial contexts
+
+NOT ALLOWED (requires written permission from the author):
+  ✗ Printing this documentation as a physical book and selling it
+  ✗ Including this documentation in a paid online course
+  ✗ Using this documentation in for-profit corporate training
+  ✗ Translating and republishing the entire documentation
+  ✗ Creating a "modified version" or "v2" of this documentation
+  ✗ Using this documentation as the basis for a competing tutorial product
+
+For commercial licensing inquiries (publishing, training, enterprise use),
+contact: hefangsheng@gmail.com
+
+================================================================================
+FULL LEGAL TEXT
+================================================================================
+
+The full legal text of CC BY-NC-ND 4.0 is available at:
+https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+
+By using or accessing this documentation, you agree to be bound by the terms
+of CC BY-NC-ND 4.0.
+
+================================================================================
+DISCLAIMER
+================================================================================
+
+THE DOCUMENTATION IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED. THE AUTHOR SHALL NOT BE LIABLE FOR ANY DAMAGES ARISING FROM THE
+USE OF THIS DOCUMENTATION.

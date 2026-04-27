@@ -1,0 +1,86 @@
+# Lark Send Skill —— 向飞书群发消息
+# License: MIT
+#
+# 前置：
+#   1. 飞书后台创建自建应用，拿 App ID / App Secret
+#   2. 给应用 im:message:send_as_bot 权限
+#   3. .env 配 LARK_APP_ID / LARK_APP_SECRET
+#
+# 用法：
+#   > 给"研发群"发一条："今天下午 3 点开会"
+
+name: lark_send
+description: |
+  向飞书群发送文字消息。当用户说"发飞书"、"发到群里"、"通知 XX 群"时使用。
+  注意：chat_id 不是群名，需要事先用 lark_chat_lookup 拿到。
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    description: "飞书群的 chat_id（oc_ 开头）"
+  - name: message
+    type: string
+    required: true
+    description: "消息内容（纯文本，最多 2000 字）"
+  - name: at_user_open_ids
+    type: array
+    items:
+      type: string
+    required: false
+    description: "可选：要 @ 的用户 open_id 列表"
+
+script: |
+  #!/usr/bin/env python3
+  import sys, json, os, urllib.request
+
+  args = json.loads(sys.stdin.read())
+  chat_id = args['chat_id']
+  message = args['message']
+  at_users = args.get('at_user_open_ids', [])
+
+  app_id = os.environ.get('LARK_APP_ID')
+  app_secret = os.environ.get('LARK_APP_SECRET')
+  if not app_id or not app_secret:
+      print(json.dumps({"error": "LARK_APP_ID / LARK_APP_SECRET 未配置"}))
+      sys.exit(1)
+
+  # 1. 拿 tenant_access_token
+  req = urllib.request.Request(
+      'https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal',
+      data=json.dumps({"app_id": app_id, "app_secret": app_secret}).encode(),
+      headers={'Content-Type': 'application/json'},
+  )
+  with urllib.request.urlopen(req) as resp:
+      data = json.loads(resp.read())
+      if data.get('code') != 0:
+          print(json.dumps({"error": "auth failed", "detail": data}))
+          sys.exit(1)
+      token = data['tenant_access_token']
+
+  # 2. 构造 @人 文本
+  at_text = ''.join(f'<at user_id="{uid}"></at>' for uid in at_users)
+  full_message = at_text + message if at_users else message
+
+  # 3. 发消息
+  req = urllib.request.Request(
+      'https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=chat_id',
+      data=json.dumps({
+          "receive_id": chat_id,
+          "msg_type": "text",
+          "content": json.dumps({"text": full_message}),
+      }).encode(),
+      headers={
+          'Authorization': f'Bearer {token}',
+          'Content-Type': 'application/json',
+      },
+  )
+  with urllib.request.urlopen(req) as resp:
+      result = json.loads(resp.read())
+
+  print(json.dumps({
+    "status": "ok" if result.get('code') == 0 else "error",
+    "chat_id": chat_id,
+    "message_length": len(message),
+    "feishu_response": result,
+  }, ensure_ascii=False))

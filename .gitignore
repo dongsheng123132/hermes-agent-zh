@@ -1,0 +1,30 @@
+node_modules/
+dist/
+build/
+.next/
+.docusaurus/
+.cache/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local
+.vercel/
+.idea/
+.vscode/
+site/build/
+site/.docusaurus/
+site/package-lock.json
+site/yarn.lock
+
+# ─── 内部运营文档（不公开）───
+# publishing/ 含出版社投稿策略 / 销售估算 / 作者收入预测
+publishing/
+# marketing/ 含发文模板 + 操作话术 + 个人联系方式
+marketing/
+# GO-LIVE-CHECKLIST 含上线节奏 + KPI
+GO-LIVE-CHECKLIST.md
+# STATUS 含进度数据 + 内部决策记录
+STATUS.md
+# 临时文件
+.tmp-*

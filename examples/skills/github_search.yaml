@@ -1,0 +1,82 @@
+# GitHub Search Skill —— 搜你的 GitHub 仓库
+# License: MIT
+#
+# 前置：
+#   .env: GITHUB_TOKEN=ghp_xxx
+#   只需 read 权限
+
+name: github_search
+description: |
+  搜索你的 GitHub Issues / PRs / Code。当用户说"查我的 issue"、"看 GitHub PR"、"搜代码"时使用。
+
+parameters:
+  - name: query
+    type: string
+    required: true
+    description: "GitHub 搜索语法，如 'is:open author:@me' / 'language:python machine learning'"
+  - name: search_type
+    type: string
+    enum: [issues, code, repositories, users]
+    default: issues
+  - name: max_results
+    type: integer
+    default: 10
+    minimum: 1
+    maximum: 50
+
+script: |
+  #!/usr/bin/env python3
+  import sys, json, os, urllib.parse, urllib.request
+
+  args = json.loads(sys.stdin.read())
+  query = args['query']
+  stype = args.get('search_type', 'issues')
+  max_n = args.get('max_results', 10)
+
+  token = os.environ.get('GITHUB_TOKEN')
+  if not token:
+      print(json.dumps({"error": "GITHUB_TOKEN 未配置"}))
+      sys.exit(1)
+
+  url = f'https://api.github.com/search/{stype}?q={urllib.parse.quote(query)}&per_page={max_n}'
+  req = urllib.request.Request(url, headers={
+      'Authorization': f'token {token}',
+      'Accept': 'application/vnd.github.v3+json',
+  })
+
+  with urllib.request.urlopen(req, timeout=30) as resp:
+      data = json.loads(resp.read())
+
+  # 简化输出
+  items = []
+  for it in data.get('items', [])[:max_n]:
+      if stype == 'issues':
+          items.append({
+              'title': it['title'],
+              'state': it['state'],
+              'url': it['html_url'],
+              'repo': it['repository_url'].split('/repos/')[-1],
+              'updated': it['updated_at'],
+          })
+      elif stype == 'code':
+          items.append({
+              'name': it['name'],
+              'path': it['path'],
+              'repo': it['repository']['full_name'],
+              'url': it['html_url'],
+          })
+      elif stype == 'repositories':
+          items.append({
+              'name': it['full_name'],
+              'description': it['description'],
+              'stars': it['stargazers_count'],
+              'url': it['html_url'],
+          })
+
+  print(json.dumps({
+    "status": "ok",
+    "query": query,
+    "search_type": stype,
+    "total_count": data.get('total_count', 0),
+    "items": items,
+  }, ensure_ascii=False))

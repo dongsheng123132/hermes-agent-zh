@@ -1,0 +1,30 @@
+title = "hermes-agent-zh secret leak guard"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "uclaw-activate-secret"
+description = "Forbidden U-Claw activate secret string"
+regex = '''uclaw2026activate'''
+tags = ["secret", "u-hermes-pro"]
+
+[[rules]]
+id = "xiapanyun-provider-id"
+description = "Forbidden xiapanyun provider id (commercial-only)"
+regex = '''xiapanyun'''
+tags = ["commercial", "u-hermes-pro"]
+
+[[rules]]
+id = "ed25519-dealer-public-key-prefix"
+description = "Forbidden ED25519 dealer public key prefix"
+regex = '''pumzjQEvN5'''
+tags = ["secret", "u-hermes-pro"]
+
+[allowlist]
+description = "Allow these benign references in CONTRIBUTING / LICENSE / docs that explicitly call out the forbidden strings as forbidden"
+paths = [
+  '''CONTRIBUTING\.md''',
+  '''\.gitleaks\.toml''',
+  '''\.github/workflows/.*''',
+]

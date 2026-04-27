@@ -1,0 +1,74 @@
+# 工作流：自媒体内容流水线（超级个体案例 1）
+# License: MIT
+
+# 这是 docs/05-cases/06-solo-entrepreneur.md 案例 1 的完整可跑版本
+
+crons:
+  - name: "weekly-content-pipeline"
+    schedule: "0 6 * * 1"
+    description: "每周一早 6 点跑内容流水线"
+    timezone: "Asia/Shanghai"
+
+    provider: anthropic           # 用 Claude，写作能力强
+    model: claude-sonnet-4-5
+
+    prompt: |
+      角色：你是 AI 工具自媒体主理人，账号定位"AI Agent 实战观察"
+
+      ## Phase 1: 选题
+
+      1. 用 web_search 搜过去 7 天关键词：
+         - "AI Agent"
+         - "AI Coding"
+         - "Claude Code" / "Cursor" / "hermes"
+         - "OpenClaw" / "AutoGPT"
+
+      2. 从结果中选 1 个最有传播价值的角度
+         判断标准：
+         - 时效性（是不是新动态）
+         - 争议性（有没有讨论价值）
+         - 实用性（读者能不能学到东西）
+
+      3. 把选题写到 ~/articles/topic-{date}.md
+
+      ## Phase 2: 素材研究
+
+      4. 围绕选题，用 web_fetch 抓 3-5 篇相关报道（中英文都行）
+         保存原文到 ~/articles/research-{date}/
+
+      5. 整理成"事实卡片"：
+         - 关键数据（具体数字）
+         - 关键人物（CEO 引语 / 开发者发言）
+         - 时间线（事件顺序）
+
+      ## Phase 3: 起草
+
+      6. 用以下结构写 1500 字横评草稿：
+         - 引子（150 字）：勾起读者好奇
+         - 背景（300 字）：解释来龙去脉
+         - 对比表（必须）：3-5 个对比维度
+         - 案例（500 字）：真实使用场景
+         - 我的判断（350 字）：作者观点（保留人工补充空间）
+         - 结论（200 字）：对读者的建议
+
+      7. 写到 ~/articles/draft-{date}.md
+
+      ## Phase 4: 配图
+
+      8. 用 image_gen Skill 生成封面图：
+         prompt: "A futuristic AI agent at work, [选题主题], minimalist style"
+         保存路径在 ~/articles/cover-{date}.png
+
+      ## Phase 5: 通知
+
+      9. 用 lark_send 给我（chat_id=oc_xxx_personal）发：
+         "📝 周一选题流水线已就绪
+          - 选题: [topic]
+          - 草稿: ~/articles/draft-{date}.md
+          - 封面: ~/articles/cover-{date}.png
+          请审核 → 改稿 → 发布。
+          预计阅读量基于历史数据：1.5k-3k"
+
+    timeout: 1800              # 30 分钟（写作要时间）
+    max_retries: 1
+```
