@@ -179,7 +179,7 @@ description: |
 | number | `type: number` | 3.14 |
 | boolean | `type: boolean` | true / false |
 | array | `type: array` + `items: ...` | [1, 2, 3] |
-| object | `type: object` + `properties: ...` | {key: val} |
+| object | `type: object` + `properties: ...` | `{key: val}` |
 | enum | `enum: [a, b, c]` | "b" |
 
 ### 复杂示例
